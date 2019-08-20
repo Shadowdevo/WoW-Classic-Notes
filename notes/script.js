@@ -1,4 +1,3 @@
-/* WoW Classic Notes version 0.1 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -13,10 +12,8 @@
 $(function() {
 
 	$(".alt-route").hide();
-
 	var guideID = "checkbox-data-" + $("#content").attr("class");			// creates a brand new LS array based on the guide's name
 	var altRoutesID = "alt-routes-" + $("#content").attr("class");			// creates a brand new LS array for alternate route based on the guide's name
-
 	// serializes checkbox array data to localStorage
 	if ( window.localStorage.getItem(guideID) == undefined)
 	{
@@ -357,7 +354,8 @@ $(function() {
     ]
   };
 
-  for (var i = 0; i < Color.Data.length; i++) {
+  for (var i = 0; i < Color.Data.length; i++) 
+  {
     $("#DropDownID").append($("<option></option>").val(Color.Data[i].RgbValue).html(Color.Data[i].ColorName)		);
   }
 });
@@ -365,17 +363,22 @@ $(function() {
 // save button logic
 function saveButton()
 {
-	confirm("Save changes?");
+	var r = confirm("Save changes?");
+	if (r)
+	{
+		var title = document.getElementById("title").textContent;	// store the string contained in the title
+		localStorage.setItem('titleKey', title);					// set local storage to whatever the title contains
+	}
 }
 
-// if edit button is clicked -> disable save and +/- buttons then enable text editing and color picker -> click again to enabled save and +/- buttons
+// click edit button -> ENABLE save button, text editing, and color picker - DISABLE +/- buttons -> click again to do the opposite
 var t = true;
-function editButton(save) 
+function editButton(buttons)
 {
 	if(t)
 	{
-		document.getElementById(save.id).disabled = true;
-		document.getElementById(save.id).className = "btnDisabled";
+		document.getElementById(save.id).disabled = false;
+		document.getElementById(save.id).className = "btnEnabled";
 		document.getElementById(subtract.id).disabled = true;
 		document.getElementById(subtract.id).className = "btnDisabled";
 		document.getElementById(add.id).disabled = true;
@@ -401,12 +404,13 @@ function editButton(save)
 		document.getElementById(add6.id).disabled = true;
 		document.getElementById(add6.id).className = "btnDisabled";
 		t = false;
+		document.getElementById(title.id).contentEditable = true;
 	}
 
 	else
 	{
-		document.getElementById(save.id).disabled = false;
-		document.getElementById(save.id).className = "btnEnabled";
+		document.getElementById(save.id).disabled = true;
+		document.getElementById(save.id).className = "btnDisabled";
 		document.getElementById(subtract.id).disabled = false;
 		document.getElementById(subtract.id).className = "btnEnabled";
 		document.getElementById(add.id).disabled = false;
@@ -432,5 +436,31 @@ function editButton(save)
 		document.getElementById(add6.id).disabled = false;
 		document.getElementById(add6.id).className = "btnEnabled";
 		t = true;
+		document.getElementById(title.id).contentEditable = false;
 	}
 }
+
+var fileId = 0; // used by the addFile() function to keep track of IDs
+function addFile() {
+    fileId++; // increment fileId to get a unique ID for the new element
+    var html = '<input type="file" name="uploaded_files[]" /> ' +
+               '<a href="" onclick="javascript:removeElement(\'file-\' + ' + fileId + '); return false;">Remove</a>';
+    addElement('files', 'p', 'file-' + fileId, html);
+}
+
+function addElement(parentId, elementTag, elementId, html) {
+    // Adds an element to the document
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+
+// disables enter key on everything
+$(document).keypress(
+  function(event){
+    if (event.which == '13') {
+      event.preventDefault();
+    }
+});

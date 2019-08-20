@@ -1,10 +1,8 @@
-<!-- WoW Classic Notes version 0.1 -->
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>WoW Classic Notes</title>
     <link rel="icon" href="./icon.png">
-    <script src="./script.js"></script>
 	<link rel="stylesheet" type="text/css" href="./layout.css" media="screen,projection,tv">
 <script type="text/javascript" src="https://classicdb.ch/templates/wowhead/js/power.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> <script src="./script.js"></script><style type="text/css">
@@ -32,47 +30,58 @@
 <div class="guide-container">
 <div class="steps2">
 <div class="steps-left">
-<h1 style="color:red;font-size:30px;text-align: center;outline-color: black;margin-bottom: 10px;" contentEditable="true" spellcheck="false">Shadowdevo's Undead Warlock 1-60 Notes</h1>
-	<div class="steps-container"><span class="lvl-zone">= Level 1-10 =</span><button class="btnEnabled" id="subtract">-</button><button class="btnEnabled" id="add">+</button><br>
-		<b><input type="checkbox" id="01a"><label for="01a"><span></span></label><span class="highlight"><label for="01a">01)</label></span></b><label for="01a" contentEditable="true"> Level 5 Grind to level 6 for <b class="accept">Maggot Eye</b> and pick up <b class=shaman>Blood Pact</b></label><br>
+<h1 style="color:red;font-size:30px;text-align: center;outline-color: black;margin-bottom: 10px;" contentEditable="false" spellcheck="false" id="title"></h1>
+<script type="text/javascript">
+if (localStorage.getItem("titleKey") == null || localStorage.getItem("titleKey") == '')
+{
+	document.getElementById("title").innerHTML = "Untitled Notes";	// sets title to Untitled Notes if nothing is stored in local storage
+}
+else
+{
+	var textHtml = localStorage.getItem("titleKey");
+	document.getElementById("title").innerHTML = textHtml;			// overwrites title with what is in local storage
+}
+</script>
+	<div class="steps-container"><span class="lvl-zone">= Level 1-10 =</span><button class="btnEnabled" id="subtract">-</button><button class="btnEnabled" id="add" onclick="addFile();">+</button><br>
+		<b><input type="checkbox" id="1a"><label for="1a"><span></span></label><span class="highlight"><label for="1a">1)</label></span></b><label for="1a" contenteditable="true">test</label><br>
+		<!-- <b><input type="checkbox" id="01a"><label for="01a"><span></span></label><span class="highlight"><label for="01a">01)</label></span></b><label for="01a" contentEditable="true"> Level 5 Grind to level 6 for <b class="accept">Maggot Eye</b> and pick up <b class=shaman>Blood Pact</b></label><br>
 		<b><input type="checkbox" id="02a"><label for="02a"><span></span></label><span class="highlight"><label for="02a">02)</label></span></b><label for="02a"> Level 6 Buy <b class ="warlock">Shadow Bolt</b> <b class="video">(Rank 2)</b> and <b class="warlock">Life Tap</b></label><br>
-		<b><input type="checkbox" id="03a"><label for="03a"><span></span></label><span class="highlight"><label for="03a">03)</label></span></b><label for="03a"> Level 8 Buy <b class="warlock">Fear, </b><b class="warlock">Curse of Agony, </b>and <b class="shaman">Firebolt </b><b class="video">(Rank 2)</b></label><br>
-		<b><input type="checkbox" id="04a"><label for="04a"><span></span></label><span class="highlight"><label for="04a" style="background-color: #6A00A3">NOTES:</label></span></b><label for="04a"> <i>Set inn as hearth. First Aid inside inn near entrance. Trade goods vendor under red tent.</i></label><br>
+		<b><input type="checkbox" id="03a"><label for="03a"><span></span></label><span class="highlight"><label for="03a">03)</label></span></b><label for="03a"> Level 8 Buy <b class="warlock">Fear, </b><b class="warlock">Curse of Agony, </b>and <b class="shaman">Firebolt </b><b class="video">(Rank 2)</b></label><br> -->
+		<b><input type="checkbox" id="notes1"><label for="notes1"><span></span></label><span class="highlight"><label for="notes1" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes1"> <i>Set inn as hearth. First Aid inside inn near entrance. Trade goods vendor under red tent.</i></label><br>
 		<!-- <b><input type="checkbox" id="0a"><label for="0a"><span></span></label><span class="highlight"><label for="0a">0)</label></span></b><label for="0a"> </label><br>
 		<b class="warlock"></b> -->
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 10-20 =</span><button class="btnEnabled" id="subtract2">-</button><button class="btnEnabled" id="add2">+</button><br>
-		<b><input type="checkbox" id="01b"><label for="01b"><span></span></label><span class="highlight"><label for="01b">01)</label></span></b><label for="01b"> Level 10 Do <b class="accept">Voidwalker Quest</b> + Buy <b class="warlock">Immolate</b>, <b class="warlock">Corruption</b>, <b class="warlock">Drain Soul</b>, <b class="warlock">Health Stone</b>, and <b class="warlock">Demon Skin</b> <b class="video">(Rank 2)</b></label><br>
+		<!-- <b><input type="checkbox" id="01b"><label for="01b"><span></span></label><span class="highlight"><label for="01b">01)</label></span></b><label for="01b"> Level 10 Do <b class="accept">Voidwalker Quest</b> + Buy <b class="warlock">Immolate</b>, <b class="warlock">Corruption</b>, <b class="warlock">Drain Soul</b>, <b class="warlock">Health Stone</b>, and <b class="warlock">Demon Skin</b> <b class="video">(Rank 2)</b></label><br>
 		<b><input type="checkbox" id="02b"><label for="02b"><span></span></label><span class="highlight"><label for="02b">02)</label></span></b><label for="02b"> Level 12 Buy <b class ="warlock">Shadow Bolt</b> <b class="video">(Rank 3)</b></label><br>
 		<b><input type="checkbox" id="03b"><label for="03b"><span></span></label><span class="highlight"><label for="03b">03)</label></span></b><label for="03b"> Level 14 Buy <b class="warlock">Corruption</b> <b class="video">(Rank 2)</b></label><br>
-		<b><input type="checkbox" id="04b"><label for="04b"><span></span></label><span class="highlight"><label for="04b">04)</label></span></b><label for="04b"> Level 15 Buy <b class="shaman">Sacrifice</b> and <b class="shaman">Consume Shadows</b> in ORG (use at Level 16 &amp; 18)</label><br>
-		<b><input type="checkbox" id="05b"><label for="05b"><span></span></label><span class="highlight"><label for="05b" style="background-color: #6A00A3">NOTES:</label></span></b><label for="05b"> <i>notes go here</i></label><br>
+		<b><input type="checkbox" id="04b"><label for="04b"><span></span></label><span class="highlight"><label for="04b">04)</label></span></b><label for="04b"> Level 15 Buy <b class="shaman">Sacrifice</b> and <b class="shaman">Consume Shadows</b> in ORG (use at Level 16 &amp; 18)</label><br> -->
+		<b><input type="checkbox" id="notes2"><label for="notes2"><span></span></label><span class="highlight"><label for="notes2" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes2"> <i>notes go here</i></label><br>
 		<!-- <b><input type="checkbox" id="0b"><label for="0b"><span></span></label><span class="highlight"><label for="0b">0)</label></span></b><label for="0b"> </label><br> 
 		-->
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 20-30 =</span><button class="btnEnabled" id="subtract3">-</button><button class="btnEnabled" id="add3">+</button><br>
-		<b><input type="checkbox" id="01c"><label for="01c"><span></span></label><span class="highlight"><label for="01c" style="background-color: #6A00A3">NOTES:</label></span></b><label for="01c"> <i>notes go here</i></label><br>
+		<b><input type="checkbox" id="notes3"><label for="notes3"><span></span></label><span class="highlight"><label for="notes3" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes3"> <i>notes go here</i></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 30-40 =</span><button class="btnEnabled" id="subtract4">-</button><button class="btnEnabled" id="add4">+</button><br>
-		<b><input type="checkbox" id="01d"><label for="01d"><span></span></label><span class="highlight"><label for="01d" style="background-color: #6A00A3">NOTES:</label></span></b><label for="01d"> <i>notes go here</i></label><br>
+		<b><input type="checkbox" id="notes4"><label for="notes4"><span></span></label><span class="highlight"><label for="notes4" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes4"> <i>notes go here</i></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 40-50 =</span><button class="btnEnabled" id="subtract5">-</button><button class="btnEnabled" id="add5">+</button><br>
-		<b><input type="checkbox" id="01e"><label for="01e"><span></span></label><span class="highlight"><label for="01e" style="background-color: #6A00A3">NOTES:</label></span></b><label for="01e"> <i>notes go here</i></label><br>
+		<b><input type="checkbox" id="notes5"><label for="notes5"><span></span></label><span class="highlight"><label for="notes5" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes5"> <i>notes go here</i></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 50-60 =</span><button class="btnEnabled" id="subtract6">-</button><button class="btnEnabled" id="add6">+</button><br>
-		<b><input type="checkbox" id="01f"><label for="01f"><span></span></label><span class="highlight"><label for="01f" style="background-color: #6A00A3">NOTES:</label></span></b><label for="01f"> <i>notes go here</i></label><br>
+		<b><input type="checkbox" id="notes6"><label for="notes6"><span></span></label><span class="highlight"><label for="notes6" style="background-color: #6A00A3">NOTES:</label></span></b><label for="notes6"> <i>notes go here</i></label><br>
 	</div>
-	<div class="steps-container"><span class="lvl-zone"><button id="save" onclick="saveButton()" class="btnEnabled">Save</button><button onclick="editButton(save, subtract, add, subtract2, add2, subtract3, add3, subtract4, add4, subtract5, add5, subtract6, add6)" class="btnEnabled">Edit</button>
+	<div class="steps-container"><span class="lvl-zone"><button id="save" onclick="saveButton()" class="btnDisabled" disabled="true">Save</button><button onclick="editButton(title, save, subtract, add, subtract2, add2, subtract3, add3, subtract4, add4, subtract5, add5, subtract6, add6)" class="btnEnabled">Edit</button>
 	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<select name="DropDownID" id="DropDownID"></select></span><br>
-</div>
+	<select name="DropDownID" id="DropDownID"></select></span><br></div>
 </div>
 </div>
 </div>
