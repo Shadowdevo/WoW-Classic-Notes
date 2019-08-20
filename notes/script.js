@@ -272,5 +272,165 @@ $(function() {
 		}
 		location.reload();
 	});
-
 });
+
+// --------------------------------------------------- WoW Classic Notes Stuff ------------------------------------------
+
+// color picker
+$(function() {
+  $.widget("custom.selectmenu", $.ui.selectmenu, {
+    _renderItem: function(ul, item) {
+
+      console.log(item);
+      var li = $("<li>"),
+        wrapper = $("<div>");
+
+      if (item.disabled) {
+        li.addClass("ui-state-disabled");
+      }
+
+      $("<span>", {
+          style: "background-color: #" + item.value,
+          "class": "ui-color-chip"
+        })
+        .appendTo(wrapper);
+      wrapper.append(item.label);
+
+      return li.append(wrapper).appendTo(ul);
+    }
+  });
+
+  $("#DropDownID")
+    .selectmenu()
+    .selectmenu("menuWidget")
+    .addClass("ui-menu-icons customicons");
+
+  var Color = {
+    Data: [
+
+      {
+      	RgbValue: 'c9c9c9',
+      	ColorName: 'none'
+      }, {
+        RgbValue: '80FFFF',
+        ColorName: 'accept'
+      }, {
+        RgbValue: '8080FF',
+        ColorName: 'do'
+      }, {
+         RgbValue: '00C000',
+         ColorName: 'turnin'
+      }, {
+         RgbValue: 'FF40FF',
+         ColorName: 'general'
+      }, {
+        RgbValue: 'FF0000',
+        ColorName: 'skipped'
+      }, {
+        RgbValue: 'FF7D0A',
+        ColorName: 'druid'
+      }, {
+        RgbValue: 'E63131',
+        ColorName: 'hunter'
+      }, {
+        RgbValue: '69CCF0',
+        ColorName: 'mage'
+      }, {
+        RgbValue: 'F58CBA',
+        ColorName: 'paladin'
+      }, {
+        RgbValue: 'FFFFFF',
+        ColorName: 'priest'
+      }, {
+        RgbValue: 'FFF569',
+        ColorName: 'rogue'
+      }, {
+        RgbValue: '0070DE',
+        ColorName: 'shaman'
+      }, {
+        RgbValue: '9482C9',
+        ColorName: 'warlock'
+      }, {
+        RgbValue: 'C79C6E',
+        ColorName: 'warrior'
+      },
+    ]
+  };
+
+  for (var i = 0; i < Color.Data.length; i++) {
+    $("#DropDownID").append($("<option></option>").val(Color.Data[i].RgbValue).html(Color.Data[i].ColorName)		);
+  }
+});
+
+// save button logic
+function saveButton()
+{
+	confirm("Save changes?");
+}
+
+// if edit button is clicked -> disable save and +/- buttons then enable text editing and color picker -> click again to enabled save and +/- buttons
+var t = true;
+function editButton(save) 
+{
+	if(t)
+	{
+		document.getElementById(save.id).disabled = true;
+		document.getElementById(save.id).className = "btnDisabled";
+		document.getElementById(subtract.id).disabled = true;
+		document.getElementById(subtract.id).className = "btnDisabled";
+		document.getElementById(add.id).disabled = true;
+		document.getElementById(add.id).className = "btnDisabled";
+		document.getElementById(subtract2.id).disabled = true;
+		document.getElementById(subtract2.id).className = "btnDisabled";
+		document.getElementById(add2.id).disabled = true;
+		document.getElementById(add2.id).className = "btnDisabled";
+		document.getElementById(subtract3.id).disabled = true;
+		document.getElementById(subtract3.id).className = "btnDisabled";
+		document.getElementById(add3.id).disabled = true;
+		document.getElementById(add3.id).className = "btnDisabled";
+		document.getElementById(subtract4.id).disabled = true;
+		document.getElementById(subtract4.id).className = "btnDisabled";
+		document.getElementById(add4.id).disabled = true;
+		document.getElementById(add4.id).className = "btnDisabled";
+		document.getElementById(subtract5.id).disabled = true;
+		document.getElementById(subtract5.id).className = "btnDisabled";
+		document.getElementById(add5.id).disabled = true;
+		document.getElementById(add5.id).className = "btnDisabled";
+		document.getElementById(subtract6.id).disabled = true;
+		document.getElementById(subtract6.id).className = "btnDisabled";
+		document.getElementById(add6.id).disabled = true;
+		document.getElementById(add6.id).className = "btnDisabled";
+		t = false;
+	}
+
+	else
+	{
+		document.getElementById(save.id).disabled = false;
+		document.getElementById(save.id).className = "btnEnabled";
+		document.getElementById(subtract.id).disabled = false;
+		document.getElementById(subtract.id).className = "btnEnabled";
+		document.getElementById(add.id).disabled = false;
+		document.getElementById(add.id).className = "btnEnabled";
+		document.getElementById(subtract2.id).disabled = false;
+		document.getElementById(subtract2.id).className = "btnEnabled";
+		document.getElementById(add2.id).disabled = false;
+		document.getElementById(add2.id).className = "btnEnabled";
+		document.getElementById(subtract3.id).disabled = false;
+		document.getElementById(subtract3.id).className = "btnEnabled";
+		document.getElementById(add3.id).disabled = false;
+		document.getElementById(add3.id).className = "btnEnabled";
+		document.getElementById(subtract4.id).disabled = false;
+		document.getElementById(subtract4.id).className = "btnEnabled";
+		document.getElementById(add4.id).disabled = false;
+		document.getElementById(add4.id).className = "btnEnabled";
+		document.getElementById(subtract5.id).disabled = false;
+		document.getElementById(subtract5.id).className = "btnEnabled";
+		document.getElementById(add5.id).disabled = false;
+		document.getElementById(add5.id).className = "btnEnabled";
+		document.getElementById(subtract6.id).disabled = false;
+		document.getElementById(subtract6.id).className = "btnEnabled";
+		document.getElementById(add6.id).disabled = false;
+		document.getElementById(add6.id).className = "btnEnabled";
+		t = true;
+	}
+}

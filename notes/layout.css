@@ -1,4 +1,4 @@
-/*WoW Classic Notes version 0.1*/
+/* WoW Classic Notes version 0.1 */
 /* null margins and padding to give good cross-browser baseline */
 html,body,address,blockquote,div,
 form,fieldset,caption,
@@ -269,6 +269,7 @@ A.skipped:hover {color: #FF7777; text-decoration: underline}
 	font-size:1.4em;
 	font-weight:bold;
 	color:#FFA500;
+	margin-right: 0.5em;
 }
 
 .bottom-menu-container {
@@ -490,6 +491,7 @@ a img.noborder {
 html *
 {
    font-size: 1em;
+   outline-color: black;
    color: #c9c9c9;
    font-family: verdana !important;
     line-height:1.5
@@ -497,7 +499,7 @@ html *
 body {
 	padding:0 1em;
 	min-width:46em; /* for pre CSS3 browsers */
-	font:normal 85%/150% verdana,arial,helvetica,sans-serif;
+	font:normal verdana,arial,helvetica,sans-serif;
 	background:#000000;
 	color:#FFFFFF;
 }
@@ -1281,4 +1283,37 @@ li.twitching {
 	color: #D6D7FE;
 	margin: 0 0.2em;
 	padding: 0.1em .3em; }
-	
+
+/*--------------------------------------------------- WoW Classic Notes Stuff ------------------------------------------*/
+
+/*color picker*/
+.ui-color-chip {
+  height: 10px;
+  width: 15px;
+  top: 0px;
+  bottom: 0px;
+  left: 0em;
+  margin: 0px 10px 0px 0px;
+  display: inline-block;
+}
+
+/*+/- button*/
+.btnEnabled {
+	color:#FFA500;
+	background-color: black;
+	outline-color: red;
+	border-color: #FFA500;
+	margin-right: 0.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+/*disabled colors*/
+.btnDisabled {
+	background-color:#995c00;
+	color:black;
+	outline-color: red;
+	border-color: #FFA500;
+	margin-right: 0.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+}
