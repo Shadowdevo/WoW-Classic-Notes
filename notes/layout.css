@@ -1,3 +1,4 @@
+/* WoW Classic Notes version 0.4 */
 /* null margins and padding to give good cross-browser baseline */
 html,body,address,blockquote,div,
 form,fieldset,caption,
@@ -1310,6 +1311,26 @@ li.twitching {
 .btnDisabled {
 	background-color:#995c00;
 	color:black;
+	outline-color: red;
+	border-color: #FFA500;
+	margin-right: 0.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.editOn {
+	color:#FFA500;
+	background-color: #004d1a;
+	outline-color: #004d1a;
+	border-color: #FFA500;
+	margin-right: 0.5em;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.editOff {
+	color:#FFA500;
+	background-color: #800000;
 	outline-color: red;
 	border-color: #FFA500;
 	margin-right: 0.5em;

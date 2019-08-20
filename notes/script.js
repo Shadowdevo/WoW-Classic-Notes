@@ -1,3 +1,4 @@
+/* WoW Classic Notes version 0.4 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -368,6 +369,14 @@ function saveButton()
 	{
 		var title = document.getElementById("title").textContent;	// store the string contained in the title
 		localStorage.setItem('titleKey', title);					// set local storage to whatever the title contains
+		if (localStorage.getItem("titleKey") == null || isNullOrWhiteSpace(localStorage.getItem("titleKey")))
+		{
+			document.getElementById("title").innerHTML = "Untitled Notes";
+		}
+	}
+	if (localStorage.getItem("titleKey") == null || isNullOrWhiteSpace(localStorage.getItem("titleKey")))
+	{
+		document.getElementById("title").innerHTML = "Untitled Notes";
 	}
 }
 
@@ -405,6 +414,8 @@ function editButton(buttons)
 		document.getElementById(add6.id).className = "btnDisabled";
 		t = false;
 		document.getElementById(title.id).contentEditable = true;
+		document.getElementById(edit.id).className = "editOn";
+		document.getElementById(edit.id).innerHTML = "Edit: On";
 	}
 
 	else
@@ -437,24 +448,59 @@ function editButton(buttons)
 		document.getElementById(add6.id).className = "btnEnabled";
 		t = true;
 		document.getElementById(title.id).contentEditable = false;
+		document.getElementById(edit.id).className = "editOff";
+		document.getElementById(edit.id).innerHTML = "Edit: Off";
+	}
+
+	var str = document.getElementById("title").innerHTML;
+	if (isNullOrWhiteSpace(str))
+	{
+		document.getElementById("title").innerHTML = "Untitled Notes"; // if user clicks edit button and has no title it is replaced with "Untitled Notes"
 	}
 }
 
 var fileId = 0; // used by the addFile() function to keep track of IDs
-function addFile() {
+function addFile() 
+{
     fileId++; // increment fileId to get a unique ID for the new element
     var html = '<input type="file" name="uploaded_files[]" /> ' +
                '<a href="" onclick="javascript:removeElement(\'file-\' + ' + fileId + '); return false;">Remove</a>';
     addElement('files', 'p', 'file-' + fileId, html);
 }
 
-function addElement(parentId, elementTag, elementId, html) {
+function addElement(parentId, elementTag, elementId, html) 
+{
     // Adds an element to the document
     var p = document.getElementById(parentId);
     var newElement = document.createElement(elementTag);
     newElement.setAttribute('id', elementId);
     newElement.innerHTML = html;
     p.appendChild(newElement);
+}
+
+function removeElement(elementId) 
+{
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
+
+// checks to see if string is null or has whitespace - if it has whitespace it gets rid of all of it before making the final check
+function isNullOrWhiteSpace(str) 
+{
+	if (str.includes("&nbsp;"))
+	{
+		var exists = true;
+		do
+		{
+			str = str.replace('&nbsp;', '');
+			if(!str.includes("&nbsp;"))
+			{
+				exists = false;
+			}
+		}while(exists);
+	}
+	if (!str || str.length === 0 || /^\s*$/.test(str)) return true;
 }
 
 // disables enter key on everything
@@ -464,3 +510,11 @@ $(document).keypress(
       event.preventDefault();
     }
 });
+
+
+// // disables highlight and drag text
+// $(document).ready(function() {
+//   $('#title').on('dragstart',function(e) { 
+//     e.preventDefault(); //disable drag
+//   });
+// });
