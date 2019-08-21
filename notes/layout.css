@@ -1301,8 +1301,9 @@ li.twitching {
 .btnEnabled {
 	color:#FFA500;
 	background-color: black;
-	outline-color: red;
+	outline-style: none;
 	border-color: #FFA500;
+	border-radius: 5px;
 	margin-right: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -1311,18 +1312,21 @@ li.twitching {
 .btnDisabled {
 	background-color:#995c00;
 	color:black;
-	outline-color: red;
+	outline-style: none;
 	border-color: #FFA500;
+	border-radius: 5px;
 	margin-right: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
+	opacity: 0.5;
 }
 
 .editOn {
 	color:#FFA500;
 	background-color: #004d1a;
-	outline-color: #004d1a;
+	outline-style: none;
 	border-color: #FFA500;
+	border-radius: 5px;
 	margin-right: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -1331,8 +1335,9 @@ li.twitching {
 .editOff {
 	color:#FFA500;
 	background-color: #800000;
-	outline-color: red;
+	outline-style: none;
 	border-color: #FFA500;
+	border-radius: 5px;
 	margin-right: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
