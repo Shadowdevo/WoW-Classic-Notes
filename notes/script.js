@@ -1,4 +1,4 @@
-/* WoW Classic Notes version 0.4 */
+/* WoW Classic Notes version 0.5 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -373,12 +373,26 @@ function saveButton()
 		{
 			document.getElementById("title").innerHTML = "Untitled Notes";
 		}
+
+		var notes1 = document.getElementById("n1").textContent;
+		var notes2 = document.getElementById("n2").textContent;
+		var notes3 = document.getElementById("n3").textContent;
+		var notes4 = document.getElementById("n4").textContent;
+		var notes5 = document.getElementById("n5").textContent;
+		var notes6 = document.getElementById("n6").textContent;
+		localStorage.setItem('n1Key', notes1);
+		localStorage.setItem('n2Key', notes2);
+		localStorage.setItem('n3Key', notes3);
+		localStorage.setItem('n4Key', notes4);
+		localStorage.setItem('n5Key', notes5);
+		localStorage.setItem('n6Key', notes6);
 	}
 	if (localStorage.getItem("titleKey") == null || isNullOrWhiteSpace(localStorage.getItem("titleKey")))
 	{
 		document.getElementById("title").innerHTML = "Untitled Notes";
 	}
 }
+
 
 // click edit button -> ENABLE save button, text editing, and color picker - DISABLE +/- buttons -> click again to do the opposite
 var t = true;
@@ -388,8 +402,8 @@ function editButton(buttons)
 	{
 		document.getElementById(save.id).disabled = false;
 		document.getElementById(save.id).className = "btnEnabled";
-		document.getElementById(subtract.id).hidden = false;
-		document.getElementById(add.id).hidden = false;
+		document.getElementById(subtract1.id).hidden = false;
+		document.getElementById(add1.id).hidden = false;
 		document.getElementById(subtract2.id).hidden = false;
 		document.getElementById(add2.id).hidden = false;
 		document.getElementById(subtract3.id).hidden = false;
@@ -404,14 +418,20 @@ function editButton(buttons)
 		document.getElementById(title.id).contentEditable = true;
 		document.getElementById(edit.id).className = "editOn";
 		document.getElementById(edit.id).innerHTML = "Edit: On";
+		document.getElementById(n1.id).contentEditable = true;
+		document.getElementById(n2.id).contentEditable = true;
+		document.getElementById(n3.id).contentEditable = true;
+		document.getElementById(n4.id).contentEditable = true;
+		document.getElementById(n5.id).contentEditable = true;
+		document.getElementById(n6.id).contentEditable = true;
 	}
 
 	else
 	{
 		document.getElementById(save.id).disabled = true;
 		document.getElementById(save.id).className = "btnDisabled";
-		document.getElementById(subtract.id).hidden = true;
-		document.getElementById(add.id).hidden = true;
+		document.getElementById(subtract1.id).hidden = true;
+		document.getElementById(add1.id).hidden = true;
 		document.getElementById(subtract2.id).hidden = true;
 		document.getElementById(add2.id).hidden = true;
 		document.getElementById(subtract3.id).hidden = true;
@@ -426,6 +446,12 @@ function editButton(buttons)
 		document.getElementById(title.id).contentEditable = false;
 		document.getElementById(edit.id).className = "editOff";
 		document.getElementById(edit.id).innerHTML = "Edit: Off";
+		document.getElementById(n1.id).contentEditable = false;
+		document.getElementById(n2.id).contentEditable = false;
+		document.getElementById(n3.id).contentEditable = false;
+		document.getElementById(n4.id).contentEditable = false;
+		document.getElementById(n5.id).contentEditable = false;
+		document.getElementById(n6.id).contentEditable = false;
 	}
 
 	var str = document.getElementById("title").innerHTML;
@@ -433,32 +459,6 @@ function editButton(buttons)
 	{
 		document.getElementById("title").innerHTML = "Untitled Notes"; // if user clicks edit button and has no title it is replaced with "Untitled Notes"
 	}
-}
-
-var fileId = 0; // used by the addFile() function to keep track of IDs
-function addFile() 
-{
-    fileId++; // increment fileId to get a unique ID for the new element
-    var html = '<input type="file" name="uploaded_files[]" /> ' +
-               '<a href="" onclick="javascript:removeElement(\'file-\' + ' + fileId + '); return false;">Remove</a>';
-    addElement('files', 'p', 'file-' + fileId, html);
-}
-
-function addElement(parentId, elementTag, elementId, html) 
-{
-    // Adds an element to the document
-    var p = document.getElementById(parentId);
-    var newElement = document.createElement(elementTag);
-    newElement.setAttribute('id', elementId);
-    newElement.innerHTML = html;
-    p.appendChild(newElement);
-}
-
-function removeElement(elementId) 
-{
-    // Removes an element from the document
-    var element = document.getElementById(elementId);
-    element.parentNode.removeChild(element);
 }
 
 // checks to see if string is null or has whitespace - if it has whitespace it gets rid of all of it before making the final check
@@ -470,7 +470,7 @@ function isNullOrWhiteSpace(str)
 		do
 		{
 			str = str.replace('&nbsp;', '');
-			if(!str.includes("&nbsp;"))
+			if (!str.includes("&nbsp;"))
 			{
 				exists = false;
 			}
@@ -482,15 +482,107 @@ function isNullOrWhiteSpace(str)
 // disables enter key on everything
 $(document).keypress(
   function(event){
-    if (event.which == '13') {
+    if (event.which == '13')
+    {
       event.preventDefault();
     }
 });
 
+var stepNum1 = 1; // start at 1 since the first step is created by default
+var stepNum2 = 1;
+var stepNum3 = 1;
+var stepNum4 = 1;
+var stepNum5 = 1;
+var stepNum6 = 1;
+function addStep(row)
+{
+	if (row == 1)
+	{
+		stepNum1++;
+		var html = '<input type="checkbox" id="'+stepNum1+'a'+'">'+'<label for="'+stepNum1+'a'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum1+'a'+'">'+stepNum1+')</label>'+'</span>'+'<label for="'+stepNum1+'a'+'"></label>'+'<br>';
+		addElement('1a', 'b', stepNum1+'a', html);
+	}
+	if (row == 2)
+	{
+		stepNum2++;
+		var html = '<input type="checkbox" id="'+stepNum2+'b'+'">'+'<label for="'+stepNum2+'b'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum2+'b'+'">'+stepNum2+')</label>'+'</span>'+'<label for="'+stepNum2+'b'+'"></label>'+'<br>';
+		addElement('1b', 'b', stepNum2+'b', html);
+	}
+	if (row == 3)
+	{
+		stepNum3++;
+		var html = '<input type="checkbox" id="'+stepNum3+'c'+'">'+'<label for="'+stepNum3+'c'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum3+'c'+'">'+stepNum3+')</label>'+'</span>'+'<label for="'+stepNum3+'c'+'"></label>'+'<br>';
+		addElement('1c', 'b', stepNum3+'c', html);
+	}
+	if (row == 4)
+	{
+		stepNum4++;
+		var html = '<input type="checkbox" id="'+stepNum4+'d'+'">'+'<label for="'+stepNum4+'d'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum4+'d'+'">'+stepNum4+')</label>'+'</span>'+'<label for="'+stepNum4+'d'+'"></label>'+'<br>';
+		addElement('1d', 'b', stepNum4+'d', html);
+	}
+	if (row == 5)
+	{
+		stepNum5++;
+		var html = '<input type="checkbox" id="'+stepNum5+'e'+'">'+'<label for="'+stepNum5+'e'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum5+'e'+'">'+stepNum5+')</label>'+'</span>'+'<label for="'+stepNum5+'e'+'"></label>'+'<br>';
+		addElement('1e', 'b', stepNum5+'e', html);
+	}
+	if (row == 6)
+	{
+		stepNum6++;
+		var html = '<input type="checkbox" id="'+stepNum6+'f'+'">'+'<label for="'+stepNum6+'f'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum6+'f'+'">'+stepNum6+')</label>'+'</span>'+'<label for="'+stepNum6+'f'+'"></label>'+'<br>';
+		addElement('1f', 'b', stepNum6+'f', html);
+	}
+}
 
-// // disables highlight and drag text
-// $(document).ready(function() {
-//   $('#title').on('dragstart',function(e) { 
-//     e.preventDefault(); //disable drag
-//   });
-// });
+function addElement(parentId, elementTag, elementId, html)
+{
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+
+function removeStep(row)
+{
+	if (row == 1 && stepNum1 > 1)
+	{
+		var element = document.getElementById(stepNum1+'a');
+    	element.parentNode.removeChild(element);
+		stepNum1--;
+	}
+	if (row == 2 && stepNum2 > 1)
+	{
+		var element = document.getElementById(stepNum2+'b');
+    	element.parentNode.removeChild(element);
+		stepNum2--;
+	}
+	if (row == 3 && stepNum3 > 1)
+	{
+		var element = document.getElementById(stepNum3+'c');
+    	element.parentNode.removeChild(element);
+		stepNum3--;
+	}
+	if (row == 4 && stepNum4 > 1)
+	{
+		var element = document.getElementById(stepNum4+'d');
+    	element.parentNode.removeChild(element);
+		stepNum4--;
+	}
+	if (row == 5 && stepNum5 > 1)
+	{
+		var element = document.getElementById(stepNum5+'e');
+    	element.parentNode.removeChild(element);
+		stepNum5--;
+	}
+	if (row == 6 && stepNum6 > 1)
+	{
+		var element = document.getElementById(stepNum6+'f');
+    	element.parentNode.removeChild(element);
+		stepNum6--;
+	}
+	else
+	{
+
+	}
+}

@@ -1,4 +1,4 @@
-/* WoW Classic Notes version 0.4 */
+/* WoW Classic Notes version 0.5 */
 /* null margins and padding to give good cross-browser baseline */
 html,body,address,blockquote,div,
 form,fieldset,caption,
@@ -1308,6 +1308,7 @@ li.twitching {
 	padding-left: 8px;
 	padding-right: 8px;
 }
+
 /*disabled colors*/
 .btnDisabled {
 	background-color:#995c00;
@@ -1341,4 +1342,18 @@ li.twitching {
 	margin-right: 0.5em;
 	padding-left: 8px;
 	padding-right: 8px;
+}
+
+.notes {
+	background-color: #6A00A3; 
+	border: double; 
+	border-color: black;
+}
+
+.title {
+	color:red;
+	font-size:30px;
+	text-align: center;
+	outline-color: black;
+	margin-bottom: 10px;
 }
