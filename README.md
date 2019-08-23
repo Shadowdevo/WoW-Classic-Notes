@@ -1,4 +1,4 @@
-# World of Warcraft Classic Leveling Notepad Ver. 0.5
+# World of Warcraft Classic Leveling Notepad Ver. 0.6
 
 **Hey there!** This is a notepad type program meant to streamline the process of leveling in World of Warcraft Classic. 
 This is something that I wanted for myself but I think there might be others who would want this.
@@ -13,9 +13,9 @@ If you dig around enough you will find some code from [Joana's website](https://
   - Save User Inputted Steps
   - Save User Color Text
 - **Edit Button**
-  - Edit Steps
+  - Edit Added Steps
 - **Add/Remove Steps**
-  - Add/Remove Steps With +/- Buttons
+  - Added in Correct Order + Correct Formatting
 - **Notes Section**
 - **Color Picker**
   - Allow User to Choose Color of Highlighted Text
@@ -24,10 +24,11 @@ If you dig around enough you will find some code from [Joana's website](https://
 
 - **Save Button**
   - ~~Save Title~~
+  - ~~Save Notes~~
 - **Edit Button**
   - ~~Hide/Unhide Add/Remove Steps Buttons~~
   - ~~Edit Notes~~
-  - ~~Save User Inputted Notes~~
+  - ~~Edit Step 1~~
 - **Notes Section**
   - ~~Added Notes Section~~
   - ~~Allow User Input~~

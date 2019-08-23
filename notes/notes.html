@@ -1,4 +1,4 @@
-<!-- WoW Classic Notes version 0.5 -->
+<!-- WoW Classic Notes version 0.6 -->
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -44,60 +44,60 @@ else
 }
 </script>
 	<!--	templates for steps and colors 
-			<b><input type="checkbox" id="NumLetter"><label for="NumLetter"><span></span></label><span class="highlight"><label for="NumLetter">Num)</label></span></b><label for="NumLetter"> </label><br>
+			<b><input type="checkbox" id="LetterNum"><label for="LetterNum"><span></span></label><span class="highlight"><label for="LetterNum">Num)</label></span></b><label for="LetterNum" contenteditable="false" ondragstart="return false;" id="LetterNums1"></label><br>
 			<b class=".colorName"> </b>
 	 -->
 	<div class="steps-container"><span class="lvl-zone">= Level 1-10 =</span><button class="btnEnabled" id="subtract1" hidden="true" onclick="removeStep(1)">-</button><button class="btnEnabled" id="add1" onclick="addStep(1);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1a"><label for="1a"><span></span></label><span class="highlight"><label for="1a">1)</label></span></b><label for="1a" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="a1"><label for="a1"><span></span></label><span class="highlight"><label for="a1">1)</label></span></b><label for="a1" contenteditable="false" ondragstart="return false;" id="a1s1"></label><br>
 		<b><input type="checkbox" id="notes1"><label for="notes1"><span></span></label><span class="highlight"><label for="notes1" class="notes">NOTES:</label></span></b><label for="notes1"><i id="n1" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n1Key");
-		document.getElementById("n1").innerHTML = n1Html;			
+		document.getElementById("n1").innerHTML = n1Html;
 		</script></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 10-20 =</span><button class="btnEnabled" id="subtract2" hidden="true" onclick="removeStep(2)">-</button><button class="btnEnabled" id="add2" onclick="addStep(2);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1b"><label for="1b"><span></span></label><span class="highlight"><label for="1b">1)</label></span></b><label for="1b" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="b1"><label for="b1"><span></span></label><span class="highlight"><label for="b1">1)</label></span></b><label for="b1" contenteditable="false" ondragstart="return false;" id="b1s1"></label><br>
 		<b><input type="checkbox" id="notes2"><label for="notes2"><span></span></label><span class="highlight"><label for="notes2" class="notes">NOTES:</label></span></b><label for="notes2"><i id="n2" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n2Key");
-		document.getElementById("n2").innerHTML = n1Html;			
+		document.getElementById("n2").innerHTML = n1Html;
 		</script></label></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 20-30 =</span><button class="btnEnabled" id="subtract3" hidden="true" onclick="removeStep(3)">-</button><button class="btnEnabled" id="add3" onclick="addStep(3);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1c"><label for="1c"><span></span></label><span class="highlight"><label for="1c">1)</label></span></b><label for="1c" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="c1"><label for="c1"><span></span></label><span class="highlight"><label for="c1">1)</label></span></b><label for="c1" contenteditable="false" ondragstart="return false;" id="c1s1"></label><br>
 		<b><input type="checkbox" id="notes3"><label for="notes3"><span></span></label><span class="highlight"><label for="notes3" class="notes">NOTES:</label></span></b><label for="notes3"><i id="n3" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n3Key");
-		document.getElementById("n3").innerHTML = n1Html;			
+		document.getElementById("n3").innerHTML = n1Html;
 		</script></label></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 30-40 =</span><button class="btnEnabled" id="subtract4" hidden="true" onclick="removeStep(4)">-</button><button class="btnEnabled" id="add4" onclick="addStep(4);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1d"><label for="1d"><span></span></label><span class="highlight"><label for="1d">1)</label></span></b><label for="1d" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="d1"><label for="d1"><span></span></label><span class="highlight"><label for="d1">1)</label></span></b><label for="d1" contenteditable="false" ondragstart="return false;" id="d1s1"></label><br>
 		<b><input type="checkbox" id="notes4"><label for="notes4"><span></span></label><span class="highlight"><label for="notes4" class="notes">NOTES:</label></span></b><label for="notes4"><i id="n4" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n4Key");
-		document.getElementById("n4").innerHTML = n1Html;			
+		document.getElementById("n4").innerHTML = n1Html;
 		</script></label></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 40-50 =</span><button class="btnEnabled" id="subtract5" hidden="true" onclick="removeStep(5)">-</button><button class="btnEnabled" id="add5" onclick="addStep(5);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1e"><label for="1e"><span></span></label><span class="highlight"><label for="1e">1)</label></span></b><label for="1e" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="e1"><label for="e1"><span></span></label><span class="highlight"><label for="e1">1)</label></span></b><label for="e1" contenteditable="false" ondragstart="return false;" id="e1s1"></label><br>
 		<b><input type="checkbox" id="notes5"><label for="notes5"><span></span></label><span class="highlight"><label for="notes5" class="notes">NOTES:</label></span></b><label for="notes5"><i id="n5" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n5Key");
-		document.getElementById("n5").innerHTML = n1Html;			
+		document.getElementById("n5").innerHTML = n1Html;
 		</script></label></label><br>
 	</div>
 
 	<div class="steps-container"><span class="lvl-zone">= Level 50-60 =</span><button class="btnEnabled" id="subtract6" hidden="true" onclick="removeStep(6)">-</button><button class="btnEnabled" id="add6" onclick="addStep(6);" hidden="true">+</button><br>
-		<b><input type="checkbox" id="1f"><label for="1f"><span></span></label><span class="highlight"><label for="1f">1)</label></span></b><label for="1f" contenteditable="false" ondragstart="return false;"></label><br>
+		<b><input type="checkbox" id="f1"><label for="f1"><span></span></label><span class="highlight"><label for="f1">1)</label></span></b><label for="f1" contenteditable="false" ondragstart="return false;" id="f1s1"></label><br>
 		<b><input type="checkbox" id="notes6"><label for="notes6"><span></span></label><span class="highlight"><label for="notes6" class="notes">NOTES:</label></span></b><label for="notes6"><i id="n6" contenteditable="false" spellcheck="false"></i>
 		<script type="text/javascript">
 		var n1Html = localStorage.getItem("n6Key");
-		document.getElementById("n6").innerHTML = n1Html;			
+		document.getElementById("n6").innerHTML = n1Html;
 		</script></label></label><br>
 	</div>
 	<div class="steps-container"><span class="lvl-zone"><button id="save" onclick="saveButton()" class="btnDisabled" disabled="true">Save</button><button id="edit" onclick="editButton(title, save, subtract1, add1, subtract2, add2, subtract3, add3, subtract4, add4, subtract5, add5, subtract6, add6)" class="editOff">Edit: Off</button>

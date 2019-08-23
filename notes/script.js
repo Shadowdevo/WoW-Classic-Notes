@@ -1,4 +1,4 @@
-/* WoW Classic Notes version 0.5 */
+/* WoW Classic Notes version 0.6 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -418,12 +418,18 @@ function editButton(buttons)
 		document.getElementById(title.id).contentEditable = true;
 		document.getElementById(edit.id).className = "editOn";
 		document.getElementById(edit.id).innerHTML = "Edit: On";
-		document.getElementById(n1.id).contentEditable = true;
+		document.getElementById(n1.id).contentEditable = true;		// notes
 		document.getElementById(n2.id).contentEditable = true;
 		document.getElementById(n3.id).contentEditable = true;
 		document.getElementById(n4.id).contentEditable = true;
 		document.getElementById(n5.id).contentEditable = true;
 		document.getElementById(n6.id).contentEditable = true;
+		document.getElementById(a1s1.id).contentEditable = true;	// step 1 for each row
+		document.getElementById(b1s1.id).contentEditable = true;
+		document.getElementById(c1s1.id).contentEditable = true;
+		document.getElementById(d1s1.id).contentEditable = true;
+		document.getElementById(e1s1.id).contentEditable = true;
+		document.getElementById(f1s1.id).contentEditable = true;
 	}
 
 	else
@@ -452,6 +458,12 @@ function editButton(buttons)
 		document.getElementById(n4.id).contentEditable = false;
 		document.getElementById(n5.id).contentEditable = false;
 		document.getElementById(n6.id).contentEditable = false;
+		document.getElementById(a1s1.id).contentEditable = false;
+		document.getElementById(b1s1.id).contentEditable = false;
+		document.getElementById(c1s1.id).contentEditable = false;
+		document.getElementById(d1s1.id).contentEditable = false;
+		document.getElementById(e1s1.id).contentEditable = false;
+		document.getElementById(f1s1.id).contentEditable = false;
 	}
 
 	var str = document.getElementById("title").innerHTML;
@@ -499,85 +511,89 @@ function addStep(row)
 	if (row == 1)
 	{
 		stepNum1++;
-		var html = '<input type="checkbox" id="'+stepNum1+'a'+'">'+'<label for="'+stepNum1+'a'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum1+'a'+'">'+stepNum1+')</label>'+'</span>'+'<label for="'+stepNum1+'a'+'"></label>'+'<br>';
-		addElement('1a', 'b', stepNum1+'a', html);
+		var html = '<input type="checkbox" id="'+'a'+stepNum1+'">'+'<label for="'+'a'+stepNum1+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'a'+stepNum1+'">'+stepNum1+')</label>'+'</span>'+'<label for="'+'a'+stepNum1+'"></label>'+'<br>';
+		addElement('a1', 'b', 'a'+stepNum1, html);
 	}
 	if (row == 2)
 	{
 		stepNum2++;
-		var html = '<input type="checkbox" id="'+stepNum2+'b'+'">'+'<label for="'+stepNum2+'b'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum2+'b'+'">'+stepNum2+')</label>'+'</span>'+'<label for="'+stepNum2+'b'+'"></label>'+'<br>';
-		addElement('1b', 'b', stepNum2+'b', html);
+		var html = '<input type="checkbox" id="'+'b'+stepNum2+'">'+'<label for="'+'b'+stepNum2+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'b'+stepNum2+'">'+stepNum2+')</label>'+'</span>'+'<label for="'+'b'+stepNum2+'"></label>'+'<br>';
+		addElement('b1', 'b', 'b'+stepNum2, html);
 	}
 	if (row == 3)
 	{
 		stepNum3++;
-		var html = '<input type="checkbox" id="'+stepNum3+'c'+'">'+'<label for="'+stepNum3+'c'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum3+'c'+'">'+stepNum3+')</label>'+'</span>'+'<label for="'+stepNum3+'c'+'"></label>'+'<br>';
-		addElement('1c', 'b', stepNum3+'c', html);
+		var html = '<input type="checkbox" id="'+'c'+stepNum3+'">'+'<label for="'+'c'+stepNum3+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'c'+stepNum3+'">'+stepNum3+')</label>'+'</span>'+'<label for="'+'c'+stepNum3+'"></label>'+'<br>';
+		addElement('c1', 'b', 'c'+stepNum3, html);
 	}
 	if (row == 4)
 	{
 		stepNum4++;
-		var html = '<input type="checkbox" id="'+stepNum4+'d'+'">'+'<label for="'+stepNum4+'d'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum4+'d'+'">'+stepNum4+')</label>'+'</span>'+'<label for="'+stepNum4+'d'+'"></label>'+'<br>';
-		addElement('1d', 'b', stepNum4+'d', html);
+		var html = '<input type="checkbox" id="'+'d'+stepNum4+'">'+'<label for="'+'d'+stepNum4+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'d'+stepNum4+'">'+stepNum4+')</label>'+'</span>'+'<label for="'+'d'+stepNum4+'"></label>'+'<br>';
+		addElement('d1', 'b', 'd'+stepNum4, html);
 	}
 	if (row == 5)
 	{
 		stepNum5++;
-		var html = '<input type="checkbox" id="'+stepNum5+'e'+'">'+'<label for="'+stepNum5+'e'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum5+'e'+'">'+stepNum5+')</label>'+'</span>'+'<label for="'+stepNum5+'e'+'"></label>'+'<br>';
-		addElement('1e', 'b', stepNum5+'e', html);
+		var html = '<input type="checkbox" id="'+'e'+stepNum5+'">'+'<label for="'+'e'+stepNum5+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'e'+stepNum5+'">'+stepNum5+')</label>'+'</span>'+'<label for="'+'e'+stepNum5+'"></label>'+'<br>';
+		addElement('e1', 'b', 'e'+stepNum5, html);
 	}
 	if (row == 6)
 	{
 		stepNum6++;
-		var html = '<input type="checkbox" id="'+stepNum6+'f'+'">'+'<label for="'+stepNum6+'f'+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+stepNum6+'f'+'">'+stepNum6+')</label>'+'</span>'+'<label for="'+stepNum6+'f'+'"></label>'+'<br>';
-		addElement('1f', 'b', stepNum6+'f', html);
+		var html = '<input type="checkbox" id="'+'f'+stepNum6+'">'+'<label for="'+'f'+stepNum6+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'f'+stepNum6+'">'+stepNum6+')</label>'+'</span>'+'<label for="'+'f'+stepNum6+'"></label>'+'<br>';
+		addElement('f1', 'b', 'f'+stepNum6, html);
 	}
 }
 
 function addElement(parentId, elementTag, elementId, html)
 {
-    var p = document.getElementById(parentId);
+
+    var p = document.querySelector("label[for=" + parentId + "] ~ br");
+    var div = p.parentNode;
     var newElement = document.createElement(elementTag);
     newElement.setAttribute('id', elementId);
     newElement.innerHTML = html;
-    p.appendChild(newElement);
+    div.insertBefore(newElement, p.nextSibling);
+    // div.insertBefore(document.createElement("br"), p.nextSibling);
 }
 
 function removeStep(row)
 {
 	if (row == 1 && stepNum1 > 1)
 	{
-		var element = document.getElementById(stepNum1+'a');
+		var element = document.getElementById('a'+stepNum1);
     	element.parentNode.removeChild(element);
+    	// element.parentNode..removeChild("br");
 		stepNum1--;
 	}
 	if (row == 2 && stepNum2 > 1)
 	{
-		var element = document.getElementById(stepNum2+'b');
+		var element = document.getElementById('b'+stepNum2);
     	element.parentNode.removeChild(element);
 		stepNum2--;
 	}
 	if (row == 3 && stepNum3 > 1)
 	{
-		var element = document.getElementById(stepNum3+'c');
+		var element = document.getElementById('c'+stepNum3);
     	element.parentNode.removeChild(element);
 		stepNum3--;
 	}
 	if (row == 4 && stepNum4 > 1)
 	{
-		var element = document.getElementById(stepNum4+'d');
+		var element = document.getElementById('d'+stepNum4);
     	element.parentNode.removeChild(element);
 		stepNum4--;
 	}
 	if (row == 5 && stepNum5 > 1)
 	{
-		var element = document.getElementById(stepNum5+'e');
+		var element = document.getElementById('e'+stepNum5);
     	element.parentNode.removeChild(element);
 		stepNum5--;
 	}
 	if (row == 6 && stepNum6 > 1)
 	{
-		var element = document.getElementById(stepNum6+'f');
+		var element = document.getElementById('f'+stepNum6);
     	element.parentNode.removeChild(element);
 		stepNum6--;
 	}
