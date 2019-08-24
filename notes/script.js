@@ -560,53 +560,74 @@ function addElement(parentId, elementTag, elementId, html)
 	infoLabel.htmlFor = "a" + stepNum1;
 	div.insertBefore(infoLabel, newElement.nextSibling);
 	div.insertBefore(document.createElement("br"), infoLabel.nextSibling);
-
-    // newElement.setAttribute('id', elementId);
-    // newElement.innerHTML = html;
-    // div.insertBefore(newElement, p.nextSibling);
-    // div.appendChild(newElement);
-
-
-    // div.insertBefore(document.createElement("br"), p.nextSibling);
 }
 
 function removeStep(row)
 {
 	if (row == 1 && stepNum1 > 1)
 	{
-		var element = document.getElementById('a'+stepNum1);
-    	element.parentNode.removeChild(element);
-    	// element.parentNode..removeChild("br");
+		var element1 = document.querySelector("#a" + stepNum1).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum1--;
 	}
 	if (row == 2 && stepNum2 > 1)
 	{
-		var element = document.getElementById('b'+stepNum2);
-    	element.parentNode.removeChild(element);
+		var element1 = document.querySelector("#b" + stepNum2).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum2--;
 	}
 	if (row == 3 && stepNum3 > 1)
 	{
-		var element = document.getElementById('c'+stepNum3);
-    	element.parentNode.removeChild(element);
+		var element1 = document.querySelector("#c" + stepNum3).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum3--;
 	}
 	if (row == 4 && stepNum4 > 1)
 	{
-		var element = document.getElementById('d'+stepNum4);
-    	element.parentNode.removeChild(element);
+		var element1 = document.querySelector("#d" + stepNum4).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum4--;
 	}
 	if (row == 5 && stepNum5 > 1)
 	{
-		var element = document.getElementById('e'+stepNum5);
-    	element.parentNode.removeChild(element);
+		var element1 = document.querySelector("#e" + stepNum5).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum5--;
 	}
 	if (row == 6 && stepNum6 > 1)
 	{
-		var element = document.getElementById('f'+stepNum6);
-    	element.parentNode.removeChild(element);
+		var element1 = document.querySelector("#f" + stepNum6).parentNode; // b tag
+		var element2 = element1.nextSibling; // label tag
+		var element3 = element2.nextSibling; // br tag
+		var parentElement = element1.parentNode;
+		parentElement.removeChild(element1);
+		parentElement.removeChild(element2);
+		parentElement.removeChild(element3);
 		stepNum6--;
 	}
 	else
