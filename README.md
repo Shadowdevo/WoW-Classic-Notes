@@ -1,7 +1,5 @@
 # World of Warcraft Classic Leveling Notepad Ver. 0.7
 
-##
-
 **Hey there!** This is a notepad type program meant to streamline the process of leveling in World of Warcraft Classic. 
 This is something that I wanted for myself but I think there might be others who would want this.
 
