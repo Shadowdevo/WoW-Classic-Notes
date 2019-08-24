@@ -1,4 +1,4 @@
-/* WoW Classic Notes version 0.6 */
+/* WoW Classic Notes version 0.7 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -552,9 +552,21 @@ function addElement(parentId, elementTag, elementId, html)
     var p = document.querySelector("label[for=" + parentId + "] ~ br");
     var div = p.parentNode;
     var newElement = document.createElement(elementTag);
-    newElement.setAttribute('id', elementId);
+
     newElement.innerHTML = html;
-    div.insertBefore(newElement, p.nextSibling);
+	div.insertBefore(newElement, p.nextSibling);
+	div.appendChild(newElement);
+	var infoLabel = document.createElement("label");
+	infoLabel.htmlFor = "a" + stepNum1;
+	div.insertBefore(infoLabel, newElement.nextSibling);
+	div.insertBefore(document.createElement("br"), infoLabel.nextSibling);
+
+    // newElement.setAttribute('id', elementId);
+    // newElement.innerHTML = html;
+    // div.insertBefore(newElement, p.nextSibling);
+    // div.appendChild(newElement);
+
+
     // div.insertBefore(document.createElement("br"), p.nextSibling);
 }
 
