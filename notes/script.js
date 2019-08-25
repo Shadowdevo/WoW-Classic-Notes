@@ -1,4 +1,4 @@
-/* WoW Classic Notes version 0.7 */
+/* WoW Classic Notes version 0.8 */
 /*!
 * Joana's Vanilla WoW Guide Library v8
 * https://www.joanasworld.com/
@@ -374,18 +374,38 @@ function saveButton()
 			document.getElementById("title").innerHTML = "Untitled Notes";
 		}
 
-		var notes1 = document.getElementById("n1").textContent;
-		var notes2 = document.getElementById("n2").textContent;
-		var notes3 = document.getElementById("n3").textContent;
-		var notes4 = document.getElementById("n4").textContent;
+		var step1 = document.getElementById("a1s1").textContent; // gets the text content of each first step and notes section
+		var notes1 = document.getElementById("n1").textContent;		
+		var step2 = document.getElementById("b1s1").textContent;
+		var notes2 = document.getElementById("n2").textContent;		
+		var step3 = document.getElementById("c1s1").textContent;
+		var notes3 = document.getElementById("n3").textContent;		
+		var step4 = document.getElementById("d1s1").textContent;
+		var notes4 = document.getElementById("n4").textContent;		
+		var step5 = document.getElementById("e1s1").textContent;
 		var notes5 = document.getElementById("n5").textContent;
+		var step6 = document.getElementById("f1s1").textContent;
 		var notes6 = document.getElementById("n6").textContent;
+		
+		localStorage.setItem('a1s1Key', step1);	// updates the key for the first step and notes for each section
 		localStorage.setItem('n1Key', notes1);
+		localStorage.setItem('b1s1Key', step2);
 		localStorage.setItem('n2Key', notes2);
+		localStorage.setItem('c1s1Key', step3);
 		localStorage.setItem('n3Key', notes3);
+		localStorage.setItem('d1s1Key', step4);
 		localStorage.setItem('n4Key', notes4);
+		localStorage.setItem('e1s1Key', step5);
 		localStorage.setItem('n5Key', notes5);
+		localStorage.setItem('f1s1Key', step6);
 		localStorage.setItem('n6Key', notes6);
+
+		localStorage.setItem('a1StepCntKey', stepNum1);	// updates the key for the amount of rows created in local storage
+		localStorage.setItem('b1StepCntKey', stepNum2);
+		localStorage.setItem('c1StepCntKey', stepNum3);
+		localStorage.setItem('d1StepCntKey', stepNum4);
+		localStorage.setItem('e1StepCntKey', stepNum5);
+		localStorage.setItem('f1StepCntKey', stepNum6);
 	}
 	if (localStorage.getItem("titleKey") == null || isNullOrWhiteSpace(localStorage.getItem("titleKey")))
 	{
@@ -449,21 +469,21 @@ function editButton(buttons)
 		document.getElementById(subtract6.id).hidden = true;
 		document.getElementById(add6.id).hidden = true;
 		t = true;
-		document.getElementById(title.id).contentEditable = false;
+		// document.getElementById(title.id).contentEditable = false;
 		document.getElementById(edit.id).className = "editOff";
 		document.getElementById(edit.id).innerHTML = "Edit: Off";
-		document.getElementById(n1.id).contentEditable = false;
-		document.getElementById(n2.id).contentEditable = false;
-		document.getElementById(n3.id).contentEditable = false;
-		document.getElementById(n4.id).contentEditable = false;
-		document.getElementById(n5.id).contentEditable = false;
-		document.getElementById(n6.id).contentEditable = false;
-		document.getElementById(a1s1.id).contentEditable = false;
-		document.getElementById(b1s1.id).contentEditable = false;
-		document.getElementById(c1s1.id).contentEditable = false;
-		document.getElementById(d1s1.id).contentEditable = false;
-		document.getElementById(e1s1.id).contentEditable = false;
-		document.getElementById(f1s1.id).contentEditable = false;
+		// document.getElementById(n1.id).contentEditable = false;
+		// document.getElementById(n2.id).contentEditable = false;
+		// document.getElementById(n3.id).contentEditable = false;
+		// document.getElementById(n4.id).contentEditable = false;
+		// document.getElementById(n5.id).contentEditable = false;
+		// document.getElementById(n6.id).contentEditable = false;
+		// document.getElementById(a1s1.id).contentEditable = false;
+		// document.getElementById(b1s1.id).contentEditable = false;
+		// document.getElementById(c1s1.id).contentEditable = false;
+		// document.getElementById(d1s1.id).contentEditable = false;
+		// document.getElementById(e1s1.id).contentEditable = false;
+		// document.getElementById(f1s1.id).contentEditable = false;
 	}
 
 	var str = document.getElementById("title").innerHTML;
@@ -500,55 +520,130 @@ $(document).keypress(
     }
 });
 
-var stepNum1 = 1; // start at 1 since the first step is created by default
-var stepNum2 = 1;
-var stepNum3 = 1;
-var stepNum4 = 1;
-var stepNum5 = 1;
-var stepNum6 = 1;
+var stepNum1 = localStorage.getItem("a1StepCntKey");
+if (stepNum1 == null)
+{
+	stepNum1 = 1;
+}
+var stepNum2 = localStorage.getItem("b1StepCntKey");
+if (stepNum2 == null)
+{
+	stepNum2 = 1;
+}
+var stepNum3 = localStorage.getItem("c1StepCntKey");
+if (stepNum3 == null)
+{
+	stepNum3 = 1;
+}
+var stepNum4 = localStorage.getItem("d1StepCntKey");
+if (stepNum4 == null)
+{
+	stepNum4 = 1;
+}
+var stepNum5 = localStorage.getItem("e1StepCntKey");
+if (stepNum5 == null)
+{
+	stepNum5 = 1;
+}
+var stepNum6 = localStorage.getItem("f1StepCntKey");
+if (stepNum6 == null)
+{
+	stepNum6 = 1;
+}
 function addStep(row)
 {
 	if (row == 1)
 	{
 		stepNum1++;
-		var html = '<input type="checkbox" id="'+'a'+stepNum1+'">'+'<label for="'+'a'+stepNum1+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'a'+stepNum1+'">'+stepNum1+')</label>'+'</span>'+'<label for="'+'a'+stepNum1+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'a'+stepNum1+'">'+'<label for="'+'a'+stepNum1+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'a'+stepNum1+'">'+stepNum1+')</label>'+'</span>'+'<label for="'+'a'+stepNum1+'"></label>';
 		addElement('a1', 'b', 'a'+stepNum1, html);
 	}
 	if (row == 2)
 	{
 		stepNum2++;
-		var html = '<input type="checkbox" id="'+'b'+stepNum2+'">'+'<label for="'+'b'+stepNum2+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'b'+stepNum2+'">'+stepNum2+')</label>'+'</span>'+'<label for="'+'b'+stepNum2+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'b'+stepNum2+'">'+'<label for="'+'b'+stepNum2+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'b'+stepNum2+'">'+stepNum2+')</label>'+'</span>'+'<label for="'+'b'+stepNum2+'"></label>';
 		addElement('b1', 'b', 'b'+stepNum2, html);
 	}
 	if (row == 3)
 	{
 		stepNum3++;
-		var html = '<input type="checkbox" id="'+'c'+stepNum3+'">'+'<label for="'+'c'+stepNum3+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'c'+stepNum3+'">'+stepNum3+')</label>'+'</span>'+'<label for="'+'c'+stepNum3+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'c'+stepNum3+'">'+'<label for="'+'c'+stepNum3+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'c'+stepNum3+'">'+stepNum3+')</label>'+'</span>'+'<label for="'+'c'+stepNum3+'"></label>';
 		addElement('c1', 'b', 'c'+stepNum3, html);
 	}
 	if (row == 4)
 	{
 		stepNum4++;
-		var html = '<input type="checkbox" id="'+'d'+stepNum4+'">'+'<label for="'+'d'+stepNum4+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'d'+stepNum4+'">'+stepNum4+')</label>'+'</span>'+'<label for="'+'d'+stepNum4+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'d'+stepNum4+'">'+'<label for="'+'d'+stepNum4+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'d'+stepNum4+'">'+stepNum4+')</label>'+'</span>'+'<label for="'+'d'+stepNum4+'"></label>';
 		addElement('d1', 'b', 'd'+stepNum4, html);
 	}
 	if (row == 5)
 	{
 		stepNum5++;
-		var html = '<input type="checkbox" id="'+'e'+stepNum5+'">'+'<label for="'+'e'+stepNum5+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'e'+stepNum5+'">'+stepNum5+')</label>'+'</span>'+'<label for="'+'e'+stepNum5+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'e'+stepNum5+'">'+'<label for="'+'e'+stepNum5+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'e'+stepNum5+'">'+stepNum5+')</label>'+'</span>'+'<label for="'+'e'+stepNum5+'"></label>';
 		addElement('e1', 'b', 'e'+stepNum5, html);
 	}
 	if (row == 6)
 	{
 		stepNum6++;
-		var html = '<input type="checkbox" id="'+'f'+stepNum6+'">'+'<label for="'+'f'+stepNum6+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'f'+stepNum6+'">'+stepNum6+')</label>'+'</span>'+'<label for="'+'f'+stepNum6+'"></label>'+'<br>';
+		var html = '<input type="checkbox" id="'+'f'+stepNum6+'">'+'<label for="'+'f'+stepNum6+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'f'+stepNum6+'">'+stepNum6+')</label>'+'</span>'+'<label for="'+'f'+stepNum6+'"></label>';
 		addElement('f1', 'b', 'f'+stepNum6, html);
+	}
+}
+
+function loadSteps(row)
+{
+	if (row == 1)
+	{
+		for (var i = 2; i <= stepNum1; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'a'+i+'">'+'<label for="'+'a'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'a'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'a'+i+'"></label>';
+			addElement('a1', 'b', 'a'+i, html);
+		}
+	}
+	if (row == 2)
+	{
+		for (var i = 2; i <= stepNum2; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'b'+i+'">'+'<label for="'+'b'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'b'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'b'+i+'"></label>';
+			addElement('b1', 'b', 'b'+i, html);
+		}
+	}
+	if (row == 3)
+	{
+		for (var i = 2; i <= stepNum3; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'c'+i+'">'+'<label for="'+'c'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'c'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'c'+i+'"></label>';
+			addElement('c1', 'b', 'c'+i, html);
+		}
+	}
+	if (row == 4)
+	{
+		for (var i = 2; i <= stepNum4; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'d'+i+'">'+'<label for="'+'d'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'d'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'d'+i+'"></label>';
+			addElement('d1', 'b', 'd'+i, html);
+		}
+	}
+	if (row == 5)
+	{
+		for (var i = 2; i <= stepNum5; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'e'+i+'">'+'<label for="'+'e'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'e'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'e'+i+'"></label>';
+			addElement('e1', 'b', 'e'+i, html);
+		}
+	}
+	if (row == 6)
+	{
+		for (var i = 2; i <= stepNum6; i++) 
+		{
+			var html = '<input type="checkbox" id="'+'f'+i+'">'+'<label for="'+'f'+i+'">'+'<span></span>'+'</label>'+'<span class="highlight">'+'<label for="'+'f'+i+'">'+i+')</label>'+'</span>'+'<label for="'+'f'+i+'"></label>';
+			addElement('f1', 'b', 'f'+i, html);
+		}
 	}
 }
 
 function addElement(parentId, elementTag, elementId, html)
 {
-
     var p = document.querySelector("label[for=" + parentId + "] ~ br");
     var div = p.parentNode;
     var newElement = document.createElement(elementTag);
@@ -558,6 +653,8 @@ function addElement(parentId, elementTag, elementId, html)
 	div.appendChild(newElement);
 	var infoLabel = document.createElement("label");
 	infoLabel.htmlFor = "a" + stepNum1;
+	infoLabel.contentEditable = true;
+	infoLabel.spellcheck = false;
 	div.insertBefore(infoLabel, newElement.nextSibling);
 	div.insertBefore(document.createElement("br"), infoLabel.nextSibling);
 }
@@ -629,9 +726,5 @@ function removeStep(row)
 		parentElement.removeChild(element2);
 		parentElement.removeChild(element3);
 		stepNum6--;
-	}
-	else
-	{
-
 	}
 }
